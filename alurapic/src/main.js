@@ -9,6 +9,8 @@ import './directives/Transform';
 Vue.use(VueResource);
 Vue.use(VueRouter);
 
+Vue.http.options.root = 'http://localhost:3000';
+
 const router = new VueRouter({ 
   routes: routes,
   mode: 'history' 
