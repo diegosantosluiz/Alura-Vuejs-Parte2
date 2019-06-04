@@ -80,10 +80,9 @@ export default {
             this.mensagem = 'Foto removida com sucesso'
           }, 
           err => {
-            this.mensagem = 'Não foi possível remover a foto';
-            console.log(err);
+            this.mensagem = err.message;
           }
-        )
+        );
     }
   },
 
@@ -91,7 +90,7 @@ export default {
     this.service = new FotoService(this.$resource);
     this.service
       .lista()
-      .then(fotos => this.fotos = fotos, err => console.log(err));
+      .then(fotos => this.fotos = fotos, err => this.mensagem = err.message);
   }
 }
 </script>
