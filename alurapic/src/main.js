@@ -5,7 +5,8 @@ import VueResource from 'vue-resource';
 import VueRouter from 'vue-router';
 import { routes } from './routes';
 import './directives/Transform';
-import VeeValidate from 'vee-validate';
+import VeeValidate, { Validator } from 'vee-validate';
+import ptBr from 'vee-validate/dist/locale/pt_BR';
 
 Vue.use(VueResource);
 Vue.use(VueRouter);
@@ -18,6 +19,7 @@ const router = new VueRouter({
 });
 
 Vue.use(VeeValidate);
+Validator.localize('pt-BR', ptBr);
 
 new Vue({
   el: '#app',
