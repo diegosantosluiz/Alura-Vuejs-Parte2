@@ -18,6 +18,18 @@ Vue.use(VueRouter);
 
 Vue.http.options.root = process.env.API_URL ? process.env.API_URL : 'http://localhost:3000';
 
+Vue.http.interceptors.push((req, next) => {
+  // é possível colocar informações no header antes do envio da requisição
+  //req.headers.set('Authorization', 'informação de segurança aqui');
+  console.log('Lidando com o request');
+
+  next(res => {
+    console.log('Lidando com a resposta')
+    // é possível acessar os dados da reposta e realizar transformações antes
+    console.log(res.body);
+  });
+});
+
 const router = new VueRouter({ 
   routes: routes,
   mode: 'history' 
