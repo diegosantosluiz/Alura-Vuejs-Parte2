@@ -16,7 +16,8 @@ module.exports = {
           'vue-style-loader',
           'css-loader'
         ],
-      },      {
+      },      
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
@@ -37,6 +38,14 @@ module.exports = {
           name: '[name].[ext]?[hash]'
         }
       },
+      {
+        test: /\.scss$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      },     
       { 
         test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, 
         loader: 'url-loader?limit=10000&mimetype=application/font-woff' 
