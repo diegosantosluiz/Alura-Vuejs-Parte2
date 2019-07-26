@@ -7,7 +7,7 @@
     
     <input type="search" class="filtro" @input="filtro = $event.target.value" placeholder="Filtre por parte do titulo" />
     <ul class="lista-fotos">
-      <li class="lista-fotos-item" v-for="foto of fotosComFiltro">
+      <li class="lista-fotos-item" v-for="foto of fotosComFiltro" :key="foto._id">
 
         <meu-painel :titulo="foto.titulo">
           <imagem-responsiva v-meu-transform:scale.animate="1.1" 
